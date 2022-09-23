@@ -4,7 +4,13 @@
 int getRandomNumberFromRange(int minBorder, int maxBorder)
 {
     int result = new int(); // число, которое будет возвращаться
-    result = newRandom().Next(minBorder, maxBorder + 1); //функция Next возвр.знач. из полуинтервала
+    result = new Random().Next(minBorder, maxBorder + 1); //функция Next возвр.знач. из полуинтервала
     return result;
 }
-
+int randomNumber = getRandomNumberFromRange(10, 99);
+Console.WriteLine($"Случайное значение {randomNumber}");
+//for (int i =0; i < 10; i++)
+//{
+  //  int randomNumber = getRandomNumberFromRange(10, 99);
+    //Console.WriteLine($"{i}. Случайное значение {randomNumber}");
+//}
