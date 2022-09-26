@@ -24,27 +24,27 @@ int getQuarterFromCoordinate(int coordinateX, int coordinateY)
     return result;
 }
 
-int getCoordinateFromUser()
+int getCoordinateFromUser(string userInformation)
 {
     int result = 0;
     while(result == 0)
     {
+        Console.Write(userInformation);
         string userLine = Console.ReadLine();
         int.TryParse(userLine, out result);
-        if(result == 0)
+        if(result == 0 && userLine != "0")
         {
            Console.WriteLine($"Введите целое число. Вы ввели {userLine}");
         }
+        else break;
     }
     return result;
 }
 int userCoordinateX = 0;
 int userCoordinateY = 0;
 Console.WriteLine("Введите координаты");
-Console.Write ("Х: ");
-userCoordinateX = getCoordinateFromUser();
-Console.Write ("Y: ");
-userCoordinateY = getCoordinateFromUser();
+userCoordinateX = getCoordinateFromUser("X: ");
+userCoordinateY = getCoordinateFromUser("Y: ");
 
 int quarter = getQuarterFromCoordinate(userCoordinateX, userCoordinateY);
 if(quarter > 0)
