@@ -1,15 +1,20 @@
 ﻿// Напишите программу, которая принимает на вход 
 //число (А) и выдаёт сумму чисел от 1 до А.
 
+void printInConsoleWithColor(string information, ConsoleColor color)//функция изменения цвета 
+{
+    Console.ForegroundColor = color;
+    Console.WriteLine(information);
+    Console.ResetColor();//возвращает изначальный цвет
+}
+
 int getSumOfRange(int startPoint, int endPoint)
 {
     int result = 0;
     //endPoint = Math.Abs(endPoint); //ф-ция модуля числа
     if(startPoint > endPoint)
     {
-        //Console.ForegraundColor = ConsoleColor.DarkYellow;
-        Console.WriteLine($"Верхняя граница отрицательная {endPoint}");
-        //Console.ResetColor();
+        printInConsoleWithColor($"Верхняя граница отрицательна {endPoint}", ConsoleColor.DarkYellow);
         int buff = startPoint;
         startPoint = endPoint;
         endPoint = buff;
@@ -21,7 +26,7 @@ int getSumOfRange(int startPoint, int endPoint)
     return result;
 }
 
-Console.WriteLine("Введите верхнюю границу для суммы ряда");
+printInConsoleWithColor("Введите верхнюю границу для суммы ряда",ConsoleColor.DarkMagenta);
 int userNumber = Convert.ToInt32(Console.ReadLine());
 int sumOfRange = getSumOfRange(1, userNumber);
 Console.WriteLine($"Сумма всех чисел от 1 до {userNumber} равна {sumOfRange}");
